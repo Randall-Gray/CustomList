@@ -110,5 +110,17 @@ namespace CustomListGeneric
             count--;
             items[count] = default(T);      // "zero" out the item at the end that's no longer part of the list.
         }
+
+        //public string ToString()
+        //{
+
+
+        //}
+
+        // Add two CustomList<T> objects;
+        public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
+        {
+            return new CustomList<T>();
+        }
     }
 }

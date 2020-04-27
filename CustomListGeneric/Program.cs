@@ -18,7 +18,8 @@ namespace CustomListGeneric
             list.Add(5);
             list.Remove(5);
             list.Remove(1);
-            Console.WriteLine(list[2]);
+            List<int> intlist = new List<int>() { 1, 2, 3, 4 };
+            Console.WriteLine(intlist.ToString());
             Console.ReadLine();
         }
     }
