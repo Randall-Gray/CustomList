@@ -139,5 +139,23 @@ namespace CustomListGeneric
             for (int i = 0; i < list2.Count; i++)
                 list1.Add(list2[i]);
         }
+
+        // Subtract two CustomList<T> objects;
+        public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> rtnList = new CustomList<T>();
+
+            AppendList(rtnList, list1);
+            RemoveList(rtnList, list2);
+
+            return rtnList;
+        }
+
+        // Removes the items of list2 from list1 if they exist.
+        private static void RemoveList(CustomList<T> list1, CustomList<T> list2)
+        {
+            for (int i = 0; i < list2.Count; i++)
+                list1.Remove(list2[i]);
+        }
     }
 }

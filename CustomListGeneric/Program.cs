@@ -20,11 +20,7 @@ namespace CustomListGeneric
             list.Remove(5);
             list.Remove(1);
 
-            List<bool> intlist = new List<bool>() { true, false, true, false };
-            string str = intlist.ToString();
-            bool answer = true;
-            string str2 = answer.ToString();
-            Console.WriteLine(intlist.ToString());
+            Console.WriteLine((list + list + list + list).ToString());
             Console.ReadLine();
         }
     }

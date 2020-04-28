@@ -529,5 +529,295 @@ namespace UnitTestCustomList
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        //*****************Minus Operator*******************************************************************************************
+        [TestMethod]
+        public void MinusOperator_CalledOnTwoNonEmptyIntegerCustomListWithCommonValues_ReturnsProperDiffResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 3;
+            int thirdItem2 = 1;
+
+            string expectedValue = "2";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 - testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnTwoNonEmptyIntegerCustomListWithRepeatedCommonValues_ItemsOnlyRemovedOnceFromCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 3;
+            int thirdItem2 = 1;
+
+            string expectedValue = "2123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 - testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnTwoNonEmptyIntegerCustomListWithNoCommonValues_ReturnsUnchangedCopyOfIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 5;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 - testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnTwoNonEmptyIntegerCustomListWithCommonValues_OriginalIntegerCustomListsUnchanged()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> diffList = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 1;
+            int secondItem2 = 3;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            diffList = testList1 - testList2;
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractEmptyCustomerListFromNonEmptyCustomerList_DiffEqualsTheNonEmptyCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem);
+            testList1.Add(secondItem);
+            testList1.Add(thirdItem);
+
+            actualValue = (testList1 - testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_SubtractNonEmptyCustomerListFromEmptyCustomerList_DiffEqualsEmptyCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+
+            string expectedValue = "";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem);
+            testList1.Add(secondItem);
+            testList1.Add(thirdItem);
+
+            actualValue = (testList2 - testList1).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnTwoNonEmptyIntegerCustomListWithCommonValues_CountIsProperCountOfDiffCustomerLists()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 1;
+            int secondItem2 = 3;
+            int thirdItem2 = 6;
+
+            int expectedValue = 1;
+            int actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 - testList2).Count;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnThreeNonEmptyIntegerCustomListWithCommonValues_ReturnsProperDiffIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testList3 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 2;
+            int thirdItem2 = 6;
+            int firstItem3 = 4;
+            int secondItem3 = 2;
+            int thirdItem3 = 1;
+
+            string expectedValue = "3";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+            testList3.Add(firstItem3);
+            testList3.Add(secondItem3);
+            testList3.Add(thirdItem3);
+
+            actualValue = (testList1 - testList2 - testList3).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void MinusOperator_CalledOnThreeNonEmptyIntegerCustomListWithRepeatedCommonValues_ReturnsProperDiffIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testList3 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 2;
+            int thirdItem2 = 6;
+            int firstItem3 = 4;
+            int secondItem3 = 2;
+            int thirdItem3 = 1;
+
+            string expectedValue = "313";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+            testList3.Add(firstItem3);
+            testList3.Add(secondItem3);
+            testList3.Add(thirdItem3);
+
+            actualValue = (testList1 - testList2 - testList3).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }
