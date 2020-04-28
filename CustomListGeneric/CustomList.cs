@@ -125,7 +125,19 @@ namespace CustomListGeneric
         // Add two CustomList<T> objects;
         public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
         {
-            return new CustomList<T>();
+            CustomList<T> rtnList = new CustomList<T>();
+
+            AppendList(rtnList, list1);
+            AppendList(rtnList, list2);
+
+            return rtnList;
+        }
+
+        // Appends the items of list2 to the end of list1.
+        private static void AppendList(CustomList<T> list1, CustomList<T> list2)
+        {
+            for (int i = 0; i < list2.Count; i++)
+                list1.Add(list2[i]);
         }
     }
 }

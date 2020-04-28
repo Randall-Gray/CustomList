@@ -7,6 +7,7 @@ namespace UnitTestCustomList
     [TestClass]
     public class UnitTest1
     {
+        //*****************Add()*******************************************************************************************
         [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_AddedValueGoesToIndexZero()
         {
@@ -101,6 +102,7 @@ namespace UnitTestCustomList
             Assert.AreEqual(expectedValue, actualValue);
         }
 
+        //*****************Remove()*******************************************************************************************
         [TestMethod]
         public void Remove_RemoveItemFromAnEmptyCustomList_ReturnsFalse()
         {
@@ -233,6 +235,7 @@ namespace UnitTestCustomList
             Assert.AreEqual(expectedValue, actualValue);
         }
 
+        //*****************ToString()*******************************************************************************************
         [TestMethod]
         public void ToString_CalledOnNonEmptyIntegerCustomList_ReturnsProperStringOfIntegers()
         {
@@ -347,6 +350,181 @@ namespace UnitTestCustomList
             testList.Add(tenthItem);
             testList.Add(eleventhItem);
             actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        //*****************Plus Operator*******************************************************************************************
+        [TestMethod]
+        public void PlusOperator_CalledOnTwoNonEmptyIntegerCustomList_ReturnsProperCombinedIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 5;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123456";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 + testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void PlusOperator_CalledOnTwoNonEmptyIntegerCustomList_OriginalIntegerCustomListsUnchanged()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> sumList = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 5;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            sumList = testList1 + testList2;
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void PlusOperator_CalledOnOneEmptyOneNonEmptyIntegerCustomList_SumEqualsTheNonEmptyCustomLists()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem);
+            testList1.Add(secondItem);
+            testList1.Add(thirdItem);
+
+            actualValue = (testList1 + testList2).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void PlusOperator_CalledOnTwoNonEmptyIntegerCustomList_CountIsSumOfCounts()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+            int expectedValue = 6;
+            int actualValue;
+
+            // Act
+            testList1.Add(firstItem);
+            testList1.Add(secondItem);
+            testList1.Add(thirdItem);
+            testList2.Add(firstItem);
+            testList2.Add(secondItem);
+            testList2.Add(thirdItem);
+
+            actualValue = (testList1 + testList2).Count;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void PlusOperator_CalledOnTwoNonEmptyIntegerCustomList_CapacityIsDouble()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+            int expectedValue = testList1.Capacity * 2;
+            int actualValue;
+
+            // Act
+            testList1.Add(firstItem);
+            testList1.Add(secondItem);
+            testList1.Add(thirdItem);
+            testList2.Add(firstItem);
+            testList2.Add(secondItem);
+            testList2.Add(thirdItem);
+
+            actualValue = (testList1 + testList2).Capacity;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void PlusOperator_CalledOnThreeNonEmptyIntegerCustomList_ReturnsProperCombinedIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+            int firstItem2 = 4;
+            int secondItem2 = 5;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123456123";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            actualValue = (testList1 + testList2 + testList1).ToString();
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
