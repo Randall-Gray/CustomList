@@ -232,5 +232,124 @@ namespace UnitTestCustomList
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [TestMethod]
+        public void ToString_CalledOnNonEmptyIntegerCustomList_ReturnsProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int firstItem = 1;
+            int secondItem = 2;
+            int thirdItem = 3;
+            string expectedValue = "123";
+            string actualValue;
+
+            // Act
+            testList.Add(firstItem);
+            testList.Add(secondItem);
+            testList.Add(thirdItem);
+            actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void ToString_CalledOnEmptyIntegerCustomList_ReturnsEmptyString()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            string expectedValue = "";
+            string actualValue;
+
+            // Act
+            actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void ToString_CalledOnNonEmptyStringCustomList_ReturnsProperStringOfStrings()
+        {
+            // Arrange
+            CustomList<string> testList = new CustomList<string>();
+            string firstItem = "Unit ";
+            string secondItem = "Testing";
+            string thirdItem = " Is ";
+            string fourthItem = "Important!";
+            string fifthItem = " @#!*($#";
+            string expectedValue = "Unit Testing Is Important! @#!*($#";
+            string actualValue;
+
+            // Act
+            testList.Add(firstItem);
+            testList.Add(secondItem);
+            testList.Add(thirdItem);
+            testList.Add(fourthItem);
+            testList.Add(fifthItem);
+            actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void ToString_CalledOnNonEmptyBoolCustomList_ReturnsProperStringOfBools()
+        {
+            // Arrange
+            CustomList<bool> testList = new CustomList<bool>();
+            bool firstItem = true;
+            bool secondItem = false;
+            bool thirdItem = true;
+            string expectedValue = "TrueFalseTrue";
+            string actualValue;
+
+            // Act
+            testList.Add(firstItem);
+            testList.Add(secondItem);
+            testList.Add(thirdItem);
+            actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void ToString_CalledOnNonEmptyCharCustomList_ReturnsProperStringOfChars()
+        {
+            // Arrange
+            CustomList<char> testList = new CustomList<char>();
+            char firstItem = 'H';
+            char secondItem = 'e';
+            char thirdItem = 'l';
+            char fourthItem = 'l';
+            char fifthItem = 'o';
+            char sixthItem = ' ';
+            char seventhItem = 'W';
+            char eighthItem = 'o';
+            char ninthItem = 'r';
+            char tenthItem = 'l';
+            char eleventhItem = 'd';
+            string expectedValue = "Hello World";
+            string actualValue;
+
+            // Act
+            testList.Add(firstItem);
+            testList.Add(secondItem);
+            testList.Add(thirdItem);
+            testList.Add(fourthItem);
+            testList.Add(fifthItem);
+            testList.Add(sixthItem);
+            testList.Add(seventhItem);
+            testList.Add(eighthItem);
+            testList.Add(ninthItem);
+            testList.Add(tenthItem);
+            testList.Add(eleventhItem);
+            actualValue = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

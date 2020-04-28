@@ -20,14 +20,14 @@ namespace CustomListGeneric
         {
             get 
             { 
-                if (i > 0 && i < count) 
+                if (i >= 0 && i < count) 
                     return items[i]; 
                 else
                     throw new IndexOutOfRangeException($"Index {i} is out of range.");
             }
             set 
             { 
-                if (i > 0 && i < count)
+                if (i >= 0 && i < count)
                    items[i] = value;
                 else
                     throw new IndexOutOfRangeException($"Index {i} is out of range.");
@@ -111,11 +111,16 @@ namespace CustomListGeneric
             items[count] = default(T);      // "zero" out the item at the end that's no longer part of the list.
         }
 
-        //public string ToString()
-        //{
+        public override string ToString()
+        {
+            string rtnString = "";
 
-
-        //}
+            for (int i = 0; i < count; i++)
+            {
+                rtnString += items[i].ToString();
+            }
+            return rtnString;
+        }
 
         // Add two CustomList<T> objects;
         public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
