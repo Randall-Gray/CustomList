@@ -1,0 +1,35 @@
+CustomList<T> - (minus) operator overload
+
+Returns a new CustomList<T> object which contains all of the objects(T) of the first operand with the first occurance 
+of any object(T) from the second operand removed.  Any objects(T) in the second operand that are not found in the first
+operand have no affect.  The two CustomList(T) objects must contain the same type of objects(T).
+
+Usage: 
+    public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2);
+ 
+    Result = list1 - list2;
+
+Parameters
+    CustomList<T> list1 - The minuend of the difference operation.  
+
+    CustomList<T> list2 - The subtrahend of the differrence operation.
+
+Returns
+    A new CustomList<T> object equivalent to list1 - list2. An object(T) in list1 will appear in the result unless 
+    there is an equivalent object(T) (1 to 1) in list2.  If every object(T) of list1 appears (1 to 1) as an object(T) 
+    in list2, an empty CustomList<T> (count == 0) is returned.
+    
+
+Example
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> diffList;
+
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(1);       	// list1 = {1,2,1}
+            list2.Add(4);
+            list2.Add(1);
+            list2.Add(5);	        // list2 = {4,1,5}
+
+            diffList = list1 - list2;	// diffList = {2,1}
