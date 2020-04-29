@@ -19,7 +19,7 @@ namespace CustomListGeneric
             list2.Add(5);
             list2.Add(6);
 
-            Console.WriteLine((list1+ list2+ list1+ list2).ToString());
+            Console.WriteLine((list1+ list2+ list1+ list2 + list1 + list2).ToString());
             Console.ReadLine();
         }
     }
