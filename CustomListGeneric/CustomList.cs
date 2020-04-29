@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListGeneric
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         // Member variables
         private T[] items;
@@ -192,6 +193,14 @@ namespace CustomListGeneric
 
             for (int i = 0; i < list2.count; i++)       // copy list2 to list1
                 list1.Add(list2[i]);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
         }
     }
 }
