@@ -202,5 +202,11 @@ namespace CustomListGeneric
                 yield return items[i];
             }
         }
+
+        // Implements a bubble-sort on the items of the list.
+        public void Sort()
+        {
+
+        }
     }
 }

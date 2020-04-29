@@ -1132,5 +1132,134 @@ namespace UnitTestCustomList
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        //*****************Sort*******************************************************************************************
+        [TestMethod]
+        public void Sort_SortNonEmptyIntegerCustomList_SortProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 5;
+            int secondItem1 = 3;
+            int thirdItem1 = 1;
+
+            string expectedValue = "135";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {5,3,1}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            testList1.Sort();
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Sort_SortEmptyIntegerCustomList_SortProducesProperEmptyStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            string expectedValue = "";
+            string actualValue;
+
+            // Act
+            testList1.Sort();
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Sort_SortNonEmptyIntegerCustomListWithRepeatedValues_SortProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 5;
+            int secondItem1 = 3;
+            int thirdItem1 = 1;
+
+            string expectedValue = "113355";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {5,3,1,5,3,1}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(firstItem1);      
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            testList1.Sort();
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Sort_SortNonEmptyIntegerCustomListWithPositiveAndNegativeValues_SortProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 5;
+            int secondItem1 = -3;
+            int thirdItem1 = 1;
+            int fourthItem1 = -5;
+            int fifthItem1 = 3;
+            int sixthItem1 = -1;
+
+            string expectedValue = "-5-3-1135";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {5,-3,1,-5,3,-1}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(fourthItem1);
+            testList1.Add(fifthItem1);
+            testList1.Add(sixthItem1);
+
+            testList1.Sort();
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Sort_SortNonEmptyStringCustomList_SortProducesProperStringOfStrings()
+        {
+            // Arrange
+            CustomList<string> testList1 = new CustomList<string>();
+
+            string firstItem1 = "cat";
+            string secondItem1 = "elephant";
+            string thirdItem1 = "Elephant";
+            string fourthItem1 = "caz";
+
+            string expectedValue = "Elephantcatcazelephant";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {"cat", "elephant", "Elephant", "caz"}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(fourthItem1);
+
+            testList1.Sort();
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }
