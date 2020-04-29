@@ -1005,5 +1005,132 @@ namespace UnitTestCustomList
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        //*****************Iterable*******************************************************************************************
+        [TestMethod]
+        public void Iterable_IterateOverNonEmptyIntegerCustomList_IterationProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+
+            string expectedValue = "135135";
+            string actualValue = "";
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5,1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList1.Add(firstItem1);
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            foreach (int i in testList1)
+                actualValue += i.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Iterable_IterateOverEmptyIntegerCustomList_IterationProducesProperEmptyStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            string expectedValue = "";
+            string actualValue = "";
+
+            // Act
+            foreach (int i in testList1)
+                actualValue += i.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Iterable_IterateOverNonEmptyStringCustomList_IterationProducesProperStringOfStrings()
+        {
+            // Arrange
+            CustomList<string> testList1 = new CustomList<string>();
+
+            string firstItem1 = "Hello";
+            string secondItem1 = " World";
+            string thirdItem1 = "!";
+
+            string expectedValue = "Hello World!";
+            string actualValue = "";
+
+            // Act
+            testList1.Add(firstItem1);      // {"Hello", " World", "!"}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            foreach (string i in testList1)
+                actualValue += i;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Iterable_IterateOverNonEmptyIntegerCustomListTwice_IterationProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+
+            string expectedValue = "123123";
+            string actualValue = "";
+
+            // Act
+            testList1.Add(firstItem1);      // {1,2,3}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            foreach (int i in testList1)
+                actualValue += i.ToString();
+            foreach (int i in testList1)
+                actualValue += i.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Iterable_NestedIterationOverNonEmptyIntegerCustomList_IterationProducesProperStringOfIntegers()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 2;
+            int thirdItem1 = 3;
+
+            string expectedValue = "112321233123";
+            string actualValue = "";
+
+            // Act
+            testList1.Add(firstItem1);      // {1,2,3}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            foreach (int i in testList1)
+            {
+                actualValue += i.ToString();
+                foreach (int j in testList1)
+                    actualValue += j.ToString();
+            }
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

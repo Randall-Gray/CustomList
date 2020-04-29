@@ -158,31 +158,33 @@ namespace CustomListGeneric
                 list1.Remove(list2[i]);
         }
 
+        // Interlace the items of inList with this CustomList<T> items.
         public void Zip(CustomList<T> inList)
         {
             int itemsIndex = 0;
             int inListIndex = 0;
-            int toggle = 0;
+            bool myList = true;
 
             CustomList<T> newList = new CustomList<T>();
 
             while (itemsIndex < count || inListIndex < inList.count)
             {
-                if (toggle % 2 == 0 && itemsIndex < count)              // take from items
+                if (myList && itemsIndex < count)            // take from items
                 {
                     newList.Add(items[itemsIndex]);
                     itemsIndex++;
                 }
-                if (toggle % 2 == 1 && inListIndex < inList.count)      // take from inList
+                else if (inListIndex < inList.count)         // take from inList
                 {
                     newList.Add(inList[inListIndex]);
                     inListIndex++;
                 }
-                toggle++;
+                myList = !myList;
             }
             CopyList(this, newList);
         }
 
+        // Copies list2 to list1.  ie. list1 = list2
         private void CopyList(CustomList<T> list1, CustomList<T> list2)
         {
             for (int i = list1.count-1; i >= 0; i--)       // clear out list1 from end to prevent shifting objects
