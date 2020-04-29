@@ -132,7 +132,7 @@ namespace UnitTestCustomList
             bool actualValue;
 
             // Act
-            testList.Add(firstItem);
+            testList.Add(firstItem);        // {1,2,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
 
@@ -154,7 +154,7 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList.Add(firstItem);
+            testList.Add(firstItem);    // {1,2,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
 
@@ -177,7 +177,7 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList.Add(firstItem);
+            testList.Add(firstItem);    // {1,2,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
 
@@ -223,7 +223,7 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList.Add(firstItem);
+            testList.Add(firstItem);    // {1,2,1,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
             testList.Add(fourthItem);
@@ -248,7 +248,7 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList.Add(firstItem);
+            testList.Add(firstItem);    // {1,2,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
             actualValue = testList.ToString();
@@ -374,10 +374,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,5,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -406,10 +406,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,5,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -435,7 +435,7 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem);
+            testList1.Add(firstItem);   // {1,2,3}
             testList1.Add(secondItem);
             testList1.Add(thirdItem);
 
@@ -459,10 +459,10 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList1.Add(firstItem);
+            testList1.Add(firstItem);       // {1,2,3}
             testList1.Add(secondItem);
             testList1.Add(thirdItem);
-            testList2.Add(firstItem);
+            testList2.Add(firstItem);       // {1,2,3}
             testList2.Add(secondItem);
             testList2.Add(thirdItem);
 
@@ -486,10 +486,10 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList1.Add(firstItem);
+            testList1.Add(firstItem);       // {1,2,3}
             testList1.Add(secondItem);
             testList1.Add(thirdItem);
-            testList2.Add(firstItem);
+            testList2.Add(firstItem);       // {1,2,3}
             testList2.Add(secondItem);
             testList2.Add(thirdItem);
 
@@ -517,10 +517,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,5,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -549,10 +549,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,3,1}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -580,13 +580,13 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3,1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
             testList1.Add(firstItem1);
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,3,1}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -614,10 +614,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,5,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -646,10 +646,10 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {1,3,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -675,7 +675,7 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem);
+            testList1.Add(firstItem);       // {1,2,3}
             testList1.Add(secondItem);
             testList1.Add(thirdItem);
 
@@ -700,7 +700,7 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem);
+            testList1.Add(firstItem);       // {1,2,3}
             testList1.Add(secondItem);
             testList1.Add(thirdItem);
 
@@ -728,10 +728,10 @@ namespace UnitTestCustomList
             int actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {1,3,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
 
@@ -763,13 +763,13 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,2,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
-            testList3.Add(firstItem3);
+            testList3.Add(firstItem3);      // {4,2,1}
             testList3.Add(secondItem3);
             testList3.Add(thirdItem3);
 
@@ -801,20 +801,206 @@ namespace UnitTestCustomList
             string actualValue;
 
             // Act
-            testList1.Add(firstItem1);
+            testList1.Add(firstItem1);      // {1,2,3,1,2,3}
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
             testList1.Add(firstItem1);
             testList1.Add(secondItem1);
             testList1.Add(thirdItem1);
-            testList2.Add(firstItem2);
+            testList2.Add(firstItem2);      // {4,2,6}
             testList2.Add(secondItem2);
             testList2.Add(thirdItem2);
-            testList3.Add(firstItem3);
+            testList3.Add(firstItem3);      // {4,2,1}
             testList3.Add(secondItem3);
             testList3.Add(thirdItem3);
 
             actualValue = (testList1 - testList2 - testList3).ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        //*****************Zip()*******************************************************************************************
+        [TestMethod]
+        public void Zip_ZipTwoNonEmptyIntegerCustomLists_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+            int firstItem2 = 2;
+            int secondItem2 = 4;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123456";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);      // {2,4,6}
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            testList1.Zip(testList2);
+
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Zip_ZipLongIntegerCustomListIntoShortIntegerCustomList_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+            int firstItem2 = 2;
+            int secondItem2 = 4;
+            int thirdItem2 = 6;
+
+            string expectedValue = "123456246";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);      // {2,4,6,2,4,6}
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            testList1.Zip(testList2);
+
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Zip_ZipShortIntegerCustomListIntoLongIntegerCustomList_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+            int firstItem2 = 2;
+            int secondItem2 = 4;
+            int thirdItem2 = 6;
+
+            string expectedValue = "214365246";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+            testList2.Add(firstItem2);      // {2,4,6,2,4,6}
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+            testList2.Add(firstItem2);
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            testList2.Zip(testList1);
+
+            actualValue = testList2.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Zip_ZipNonEmptyIntegerCustomListIntoEmptyIntegerCustomList_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem2 = 2;
+            int secondItem2 = 4;
+            int thirdItem2 = 6;
+
+            string expectedValue = "246";
+            string actualValue;
+
+            // Act
+            testList2.Add(firstItem2);      // {2,4,6}
+            testList2.Add(secondItem2);
+            testList2.Add(thirdItem2);
+
+            testList1.Zip(testList2);
+
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Zip_ZipEmptyIntegerCustomListIntoNonEmptyIntegerCustomList_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+
+            string expectedValue = "135";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            testList1.Zip(testList2);
+
+            actualValue = testList1.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
+        public void Zip_ZipNonEmptyIntegerCustomerListIntoItself_ReturnsProperZipResultIntegerCustomList()
+        {
+            // Arrange
+            CustomList<int> testList1 = new CustomList<int>();
+
+            int firstItem1 = 1;
+            int secondItem1 = 3;
+            int thirdItem1 = 5;
+
+            string expectedValue = "113355";
+            string actualValue;
+
+            // Act
+            testList1.Add(firstItem1);      // {1,3,5}
+            testList1.Add(secondItem1);
+            testList1.Add(thirdItem1);
+
+            testList1.Zip(testList1);
+
+            actualValue = testList1.ToString();
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);

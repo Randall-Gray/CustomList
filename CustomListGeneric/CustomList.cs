@@ -157,5 +157,39 @@ namespace CustomListGeneric
             for (int i = 0; i < list2.Count; i++)
                 list1.Remove(list2[i]);
         }
+
+        public void Zip(CustomList<T> inList)
+        {
+            int itemsIndex = 0;
+            int inListIndex = 0;
+            int toggle = 0;
+
+            CustomList<T> newList = new CustomList<T>();
+
+            while (itemsIndex < count || inListIndex < inList.count)
+            {
+                if (toggle % 2 == 0 && itemsIndex < count)              // take from items
+                {
+                    newList.Add(items[itemsIndex]);
+                    itemsIndex++;
+                }
+                if (toggle % 2 == 1 && inListIndex < inList.count)      // take from inList
+                {
+                    newList.Add(inList[inListIndex]);
+                    inListIndex++;
+                }
+                toggle++;
+            }
+            CopyList(this, newList);
+        }
+
+        private void CopyList(CustomList<T> list1, CustomList<T> list2)
+        {
+            for (int i = list1.count-1; i >= 0; i--)       // clear out list1 from end to prevent shifting objects
+                list1.Remove(list1[i]);
+
+            for (int i = 0; i < list2.count; i++)       // copy list2 to list1
+                list1.Add(list2[i]);
+        }
     }
 }
