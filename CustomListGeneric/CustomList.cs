@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListGeneric
 {
-    public class CustomList<T> : IEnumerable
+    public class CustomList<T> : IEnumerable where T : IComparable
     {
         // Member variables
         private T[] items;
@@ -206,7 +206,35 @@ namespace CustomListGeneric
         // Implements a bubble-sort on the items of the list.
         public void Sort()
         {
+            bool sorted = false;
+            int numSwaps;
 
+            while (!sorted)
+            {
+                numSwaps = 0;
+                for (int i = 0; i < count - 1; i++)
+                {
+                    if (items[i].CompareTo(items[i + 1]) > 0)
+                    {
+                        SwapItems(i, i + 1);
+                        numSwaps++;
+                    }
+                }
+                sorted = numSwaps == 0;
+            }
+        }
+
+        // Swaps the two items in items array.  No indication given if indices are invalid or the same.
+        private void SwapItems(int index1, int index2) 
+        {
+            if (index1 >= 0 && index1 < count && index2 >= 0 && index2 < count && index1 != index2)
+            {
+                T tempItem;
+
+                tempItem = items[index1];
+                items[index1] = items[index2];
+                items[index2] = tempItem;
+            }
         }
     }
 }

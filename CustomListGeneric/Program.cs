@@ -10,16 +10,13 @@ namespace CustomListGeneric
     {
         static void Main(string[] args)
         {
-            CustomList<int> list1 = new CustomList<int>();
-            CustomList<int> list2 = new CustomList<int>();
-            list1.Add(1);
-            list1.Add(2);
-            list1.Add(3);
-            list2.Add(4);
-            list2.Add(5);
-            list2.Add(6);
-
-            Console.WriteLine((list1+ list2+ list1+ list2 + list1 + list2).ToString());
+            CustomList<string> list1 = new CustomList<string>();
+            list1.Add("e");
+            list1.Add("E");
+            list1.Add("e");
+            list1.Add("E");
+            list1.Sort();
+            Console.WriteLine(list1.ToString());
             Console.ReadLine();
         }
     }

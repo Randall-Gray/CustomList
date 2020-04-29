@@ -1246,7 +1246,7 @@ namespace UnitTestCustomList
             string thirdItem1 = "Elephant";
             string fourthItem1 = "caz";
 
-            string expectedValue = "Elephantcatcazelephant";
+            string expectedValue = "catcazelephantElephant";
             string actualValue;
 
             // Act
