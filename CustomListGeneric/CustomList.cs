@@ -55,6 +55,7 @@ namespace CustomListGeneric
             count++;
         }
 
+        // Doubles the capacity of the internal array.
         private void ExpandCapacityOfList()
         {
             T[] tempArray = new T[capacity * 2];        // double capacity each time
@@ -68,7 +69,7 @@ namespace CustomListGeneric
         }
 
         // Removes first occurance of item from the list.
-        // Returns true if item was found and removed from the list.
+        // Returns true if item was found and removed from the list. Otherwise, false.
         public bool Remove(T item)
         {
             int index = FindIndexOfItemInList(item);
@@ -104,14 +105,18 @@ namespace CustomListGeneric
         // Item is removed and all subsequent items are moved up.  Capacity of list is unchanged.
         private void RemoveItemFromListAtIndex(int index)
         {
-            for (int i = index; i < count - 1; i++)
+            if (index >= 0 && index < count)
             {
-                items[i] = items[i + 1];
+                for (int i = index; i < count - 1; i++)
+                {
+                    items[i] = items[i + 1];
+                }
+                count--;
+                items[count] = default(T);      // "zero" out the item at the end that's no longer part of the list.
             }
-            count--;
-            items[count] = default(T);      // "zero" out the item at the end that's no longer part of the list.
         }
 
+        // Returns string representation of CustomList<T> equivalent to concatenations of T item strings in list.
         public override string ToString()
         {
             string rtnString = "";
@@ -123,7 +128,7 @@ namespace CustomListGeneric
             return rtnString;
         }
 
-        // Add two CustomList<T> objects;
+        // Add two CustomList<T> objects.  Returns a new sum CustomList<T> object.
         public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
         {
             CustomList<T> rtnList = new CustomList<T>();
@@ -141,8 +146,9 @@ namespace CustomListGeneric
                 list1.Add(list2[i]);
         }
 
-        // Subtract two CustomList<T> objects;
-        public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
+        // Subtract two CustomList<T> objects.  First occurance of an item from list2 is removed from list1, if it exists.
+        // Returns a new difference CustomList<T> object.
+        public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
         {
             CustomList<T> rtnList = new CustomList<T>();
 
@@ -164,13 +170,13 @@ namespace CustomListGeneric
         {
             int itemsIndex = 0;
             int inListIndex = 0;
-            bool myList = true;
+            bool thisList = true;
 
             CustomList<T> newList = new CustomList<T>();
 
             while (itemsIndex < count || inListIndex < inList.count)
             {
-                if (myList && itemsIndex < count)            // take from items
+                if (thisList && itemsIndex < count)            // take from items
                 {
                     newList.Add(items[itemsIndex]);
                     itemsIndex++;
@@ -180,21 +186,26 @@ namespace CustomListGeneric
                     newList.Add(inList[inListIndex]);
                     inListIndex++;
                 }
-                myList = !myList;
+                thisList = !thisList;
             }
             CopyList(this, newList);
         }
 
-        // Copies list2 to list1.  ie. list1 = list2
+        // Copies CustomList<T> list2 to CustomList<T> list1.  ie. list1 = list2
         private void CopyList(CustomList<T> list1, CustomList<T> list2)
         {
-            for (int i = list1.count-1; i >= 0; i--)       // clear out list1 from end to prevent shifting objects
-                list1.Remove(list1[i]);
-
-            for (int i = 0; i < list2.count; i++)       // copy list2 to list1
-                list1.Add(list2[i]);
+            ClearList(list1);
+            AppendList(list1, list2);
         }
 
+        // Removes all the items from list1.  Resets it to an empty list.
+        private void ClearList(CustomList<T> list1)
+        {
+            for (int i = list1.count - 1; i >= 0; i--)       // clear out list1 from end to prevent shifting objects
+                list1.Remove(list1[i]);
+        }
+
+        // Implements interface IEnumerable
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < count; i++)
@@ -203,7 +214,7 @@ namespace CustomListGeneric
             }
         }
 
-        // Implements a bubble-sort on the items of the list.
+        // Implements a bubble-sort on the items of this CustomList<T> object.
         public void Sort()
         {
             bool sorted = false;
@@ -224,7 +235,7 @@ namespace CustomListGeneric
             }
         }
 
-        // Swaps the two items in items array.  No indication given if indices are invalid or the same.
+        // Swaps the two indexed items in items array.  No indication given if indices are invalid or the same.
         private void SwapItems(int index1, int index2) 
         {
             if (index1 >= 0 && index1 < count && index2 >= 0 && index2 < count && index1 != index2)

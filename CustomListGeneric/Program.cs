@@ -10,14 +10,6 @@ namespace CustomListGeneric
     {
         static void Main(string[] args)
         {
-            CustomList<string> list1 = new CustomList<string>();
-            list1.Add("e");
-            list1.Add("E");
-            list1.Add("e");
-            list1.Add("E");
-            list1.Sort();
-            Console.WriteLine(list1.ToString());
-            Console.ReadLine();
         }
     }
 }

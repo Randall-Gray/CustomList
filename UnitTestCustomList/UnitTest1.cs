@@ -9,10 +9,11 @@ namespace UnitTestCustomList
     {
         //*****************Add()*******************************************************************************************
         [TestMethod]
-        public void Add_AddingOneValueToEmptyCustomList_AddedValueGoesToIndexZero()
+        public void Add_AddingOneValueToEmptyIntegerCustomList_AddedValueGoesToIndexZero()
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedItem = itemToAdd;
             int actualItem;
@@ -26,10 +27,11 @@ namespace UnitTestCustomList
         }
 
         [TestMethod]
-        public void Add_AddingOneValueToEmptyCustomList_CountOfCustomListGoesToOne()
+        public void Add_AddingOneValueToEmptyIntegerCustomList_CountOfCustomListGoesToOne()
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedValue = 1;
             int actualValue;
@@ -43,10 +45,11 @@ namespace UnitTestCustomList
         }
 
         [TestMethod]
-        public void Add_AddingOneValueToCustomListWithOneItem_AddedValueGoesToIndexOne()
+        public void Add_AddingOneValueToIntegerCustomListWithOneItem_AddedValueGoesToIndexOne()
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedItem = itemToAdd;
             int actualItem;
@@ -54,6 +57,7 @@ namespace UnitTestCustomList
             // Act
             testList.Add(itemToAdd);
             testList.Add(itemToAdd);
+
             actualItem = testList[1];
 
             //Assert
@@ -65,6 +69,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedValue = testList.Capacity * 2;
             int actualValue;
@@ -75,6 +80,7 @@ namespace UnitTestCustomList
                 testList.Add(itemToAdd);
             }
             testList.Add(itemToAdd);        // Go over capacity
+
             actualValue = testList.Capacity;
 
             //Assert
@@ -86,6 +92,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedValue = testList.Capacity + 1;
             int actualValue;
@@ -96,6 +103,7 @@ namespace UnitTestCustomList
                 testList.Add(itemToAdd);
             }
             testList.Add(itemToAdd);        // Go over capacity
+
             actualValue = testList.Count;
 
             //Assert
@@ -108,6 +116,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToRemove = 5;
             bool expectedValue = false;
             bool actualValue;
@@ -124,6 +133,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int firstItem = 1;
             int secondItem = 2;
             int thirdItem = 3;
@@ -147,6 +157,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int firstItem = 1;
             int secondItem = 2;
             int thirdItem = 3;
@@ -159,6 +170,7 @@ namespace UnitTestCustomList
             testList.Add(thirdItem);
 
             testList.Remove(firstItem);
+
             actualValue = testList[0];
 
             // Assert
@@ -170,6 +182,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int firstItem = 1;
             int secondItem = 2;
             int thirdItem = 3;
@@ -182,6 +195,7 @@ namespace UnitTestCustomList
             testList.Add(thirdItem);
 
             testList.Remove(firstItem);
+
             actualValue = testList.Count;
 
             // Assert
@@ -193,6 +207,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int itemToAdd = 10;
             int expectedValue = testList.Capacity * 2;
             int actualValue;
@@ -204,6 +219,7 @@ namespace UnitTestCustomList
             }
             testList.Add(itemToAdd);        // Go over capacity
             testList.Remove(itemToAdd);     // Go back to initial capacity
+
             actualValue = testList.Capacity;
 
             // Assert
@@ -215,6 +231,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int firstItem = 1;
             int secondItem = 2;
             int thirdItem = 1;
@@ -229,6 +246,7 @@ namespace UnitTestCustomList
             testList.Add(fourthItem);
 
             testList.Remove(thirdItem);
+
             actualValue = testList[1];
 
             // Assert
@@ -241,6 +259,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             int firstItem = 1;
             int secondItem = 2;
             int thirdItem = 3;
@@ -251,6 +270,7 @@ namespace UnitTestCustomList
             testList.Add(firstItem);    // {1,2,3}
             testList.Add(secondItem);
             testList.Add(thirdItem);
+
             actualValue = testList.ToString();
 
             // Assert
@@ -262,6 +282,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
+
             string expectedValue = "";
             string actualValue;
 
@@ -277,6 +298,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<string> testList = new CustomList<string>();
+
             string firstItem = "Unit ";
             string secondItem = "Testing";
             string thirdItem = " Is ";
@@ -291,6 +313,7 @@ namespace UnitTestCustomList
             testList.Add(thirdItem);
             testList.Add(fourthItem);
             testList.Add(fifthItem);
+
             actualValue = testList.ToString();
 
             // Assert
@@ -302,6 +325,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<bool> testList = new CustomList<bool>();
+
             bool firstItem = true;
             bool secondItem = false;
             bool thirdItem = true;
@@ -312,6 +336,7 @@ namespace UnitTestCustomList
             testList.Add(firstItem);
             testList.Add(secondItem);
             testList.Add(thirdItem);
+
             actualValue = testList.ToString();
 
             // Assert
@@ -323,6 +348,7 @@ namespace UnitTestCustomList
         {
             // Arrange
             CustomList<char> testList = new CustomList<char>();
+
             char firstItem = 'H';
             char secondItem = 'e';
             char thirdItem = 'l';
@@ -349,6 +375,7 @@ namespace UnitTestCustomList
             testList.Add(ninthItem);
             testList.Add(tenthItem);
             testList.Add(eleventhItem);
+
             actualValue = testList.ToString();
 
             // Assert
@@ -414,6 +441,7 @@ namespace UnitTestCustomList
             testList2.Add(thirdItem2);
 
             sumList = testList1 + testList2;
+
             actualValue = testList1.ToString();
 
             // Assert
@@ -1153,6 +1181,7 @@ namespace UnitTestCustomList
             testList1.Add(thirdItem1);
 
             testList1.Sort();
+
             actualValue = testList1.ToString();
 
             // Assert
@@ -1170,6 +1199,7 @@ namespace UnitTestCustomList
 
             // Act
             testList1.Sort();
+
             actualValue = testList1.ToString();
 
             // Assert
@@ -1198,6 +1228,7 @@ namespace UnitTestCustomList
             testList1.Add(thirdItem1);
 
             testList1.Sort();
+
             actualValue = testList1.ToString();
 
             // Assert
@@ -1229,6 +1260,7 @@ namespace UnitTestCustomList
             testList1.Add(sixthItem1);
 
             testList1.Sort();
+
             actualValue = testList1.ToString();
 
             // Assert
@@ -1256,6 +1288,7 @@ namespace UnitTestCustomList
             testList1.Add(fourthItem1);
 
             testList1.Sort();
+
             actualValue = testList1.ToString();
 
             // Assert

@@ -7,12 +7,14 @@ operand have no affect.  The two CustomList(T) objects must contain the same typ
 Usage: 
     public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2);
  
-    Result = list1 - list2;
+    CustomList<T> Result = list1 - list2;
 
 Parameters
     CustomList<T> list1 - The minuend of the difference operation.  
 
     CustomList<T> list2 - The subtrahend of the differrence operation.
+
+    list1 and list2 must be instantiated CustomList<T> objects.
 
 Returns
     A new CustomList<T> object equivalent to list1 - list2. An object(T) in list1 will appear in the result unless 
